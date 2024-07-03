@@ -166,9 +166,9 @@ static void _online(const char *line, size_t overflow, void *ud) {
 
 	/* if line is "quit" then, well, quit */
 	if (strcmp(line, "quit") == 0) {
+		_message(user->name, "** HAS QUIT **");
 		close(user->sock);
 		user->sock = -1;
-		_message(user->name, "** HAS QUIT **");
 		free(user->name);
 		user->name = 0;
 		telnet_free(user->telnet);
@@ -195,8 +195,10 @@ static void _event_handler(telnet_t *telnet, telnet_event_t *ev,
 	/* data received */
 	case TELNET_EV_DATA:
 		_input(user, ev->data.buffer, ev->data.size);
-					telnet_negotiate(telnet, TELNET_WONT, TELNET_TELOPT_ECHO);
+		if (user->sock != -1) {
+			telnet_negotiate(telnet, TELNET_WONT, TELNET_TELOPT_ECHO);
 			telnet_negotiate(telnet, TELNET_WILL, TELNET_TELOPT_ECHO);
+		}
 		break;
 	/* data must be sent */
 	case TELNET_EV_SEND:
