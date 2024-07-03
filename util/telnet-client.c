@@ -13,6 +13,10 @@
 #	define _BSD_SOURCE
 #endif
 
+#if !defined(_DEFAULT_SOURCE)
+#	define _DEFAULT_SOURCE
+#endif
+
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>

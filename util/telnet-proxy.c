@@ -14,6 +14,10 @@
 #		define _BSD_SOURCE
 #	endif
 
+#	if !defined(_DEFAULT_SOURCE)
+#		define _DEFAULT_SOURCE
+#	endif
+
 #	include <sys/socket.h>
 #	include <netinet/in.h>
 #	include <arpa/inet.h>
