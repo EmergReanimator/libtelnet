@@ -75,25 +75,65 @@ typedef struct telnet_telopt_t telnet_telopt_t;
 /*! \name Telnet commands */
 /*@{*/
 /*! Telnet commands and special values. */
+
+/*! \details Interpret As Command */
 #define TELNET_IAC 255
+
+/*! \details Don’t Perform */
 #define TELNET_DONT 254
+
+/*! \details Do Perform */
 #define TELNET_DO 253
+
+/*! \details Won’t Perform */
 #define TELNET_WONT 252
+
+/*! \details Will Perform */
 #define TELNET_WILL 251
+
+/*! \details Subnegotiation */
 #define TELNET_SB 250
+
+/*! \details Go Ahead */
 #define TELNET_GA 249
+
+/*! \details Erase Line */
 #define TELNET_EL 248
+
+/*! \details Erase Character */
 #define TELNET_EC 247
+
+/*! \details Are You There */
 #define TELNET_AYT 246
+
+/*! \details Abort Output */
 #define TELNET_AO 245
+
+/*! \details Interrupt Process */
 #define TELNET_IP 244
+
+/*! \details Break */
 #define TELNET_BREAK 243
+
+/*! \details Data Mark */
 #define TELNET_DM 242
+
+/*! \details No Operation */
 #define TELNET_NOP 241
+
+/*! \details Subnegotiation End */
 #define TELNET_SE 240
+
+/*! \details End of record */
 #define TELNET_EOR 239
+
+/*! \details Abort, https://datatracker.ietf.org/doc/html/rfc1184#section-2.5*/
 #define TELNET_ABORT 238
+
+/*! \details Suspend, https://datatracker.ietf.org/doc/html/rfc1184#section-2.5 */
 #define TELNET_SUSP 237
+
+/*! \details End Of File, https://datatracker.ietf.org/doc/html/rfc1184#section-2.5 */
 #define TELNET_EOF 236
 /*@}*/
 
